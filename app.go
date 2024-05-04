@@ -2,6 +2,14 @@ package main
 
 import "math"
 
+/**
+* Falsy condition (Null values)
+* int => 0
+* float => 0.0
+* string => ""
+* bool => false
+*/
+
 func main() {
 	var investmentAmount = 1000
 	var expectedReturnRate = 5.5 
