@@ -1,6 +1,9 @@
 package main
 
-import "math"
+import (
+	"fmt"
+	"math" 
+)
 
 /**
 * Falsy condition (Null values)
