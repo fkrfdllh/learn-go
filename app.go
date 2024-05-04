@@ -14,10 +14,12 @@ import (
  */
 
 func main() {
-	var investmentAmount, years float64 = 1000, 10
-	expectedReturnRate := 5.5 
+	// investmentAmount, expectedReturnRate, years := 1000.0, 5.5, 10.0
+	investmentAmount := 1000.0
+	expectedReturnRate := 5.5
+	years := 10.0
 
-	var futureValue = investmentAmount * math.Pow(1 + expectedReturnRate / 100, years)
+	futureValue := investmentAmount * math.Pow(1 + expectedReturnRate / 100, years)
 
 	fmt.Println(futureValue)
 }
