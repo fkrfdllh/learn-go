@@ -13,8 +13,9 @@ import (
 * bool => false
  */
 
+const inflationRate float64 = 2.5
+
 func main() {
-	const inflationRate float64 = 2.5
 	var investmentAmount, years, expectedReturnRate float64
 
 	// fmt.Print("Investment Amount: ")
