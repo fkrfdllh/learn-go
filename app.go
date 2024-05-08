@@ -7,8 +7,9 @@ func main() {
 
 	// Go just have one keyword to loop, that is "for" loop 
 	
-	for i := 0; i < 2; i++ {
-		fmt.Println("Welcome to GoBank!")
+	fmt.Println("Welcome to GoBank!")
+	
+	for {
 		fmt.Println("What do you want to do?")
 		fmt.Println("1. Check balance")
 		fmt.Println("2. Deposit money")
@@ -29,7 +30,7 @@ func main() {
 	
 			if depositAmount <= 0 {
 				fmt.Println("Invalid amount. Deposit amount must be greater than 0.")
-				return
+				continue
 			}
 	
 			accountBalance += depositAmount
@@ -43,12 +44,12 @@ func main() {
 	
 			if withdrawAmount <= 0 {
 				fmt.Println("Invalid amount. Withdrawal amount must be greater than 0.")
-				return
+				continue
 			}
 	
 			if withdrawAmount > accountBalance {
 				fmt.Println("Invalid amount. Withdrawal amount must less than your account balance.")
-				return
+				continue
 			}
 			
 			accountBalance -= withdrawAmount
@@ -56,6 +57,9 @@ func main() {
 			fmt.Printf("Your updated account balance is $%.2f\n", accountBalance)
 		} else {
 			fmt.Println("Goodbye!")
+			break
 		}
 	}
+
+	fmt.Println("Thank you for choosing our bank")
 }
