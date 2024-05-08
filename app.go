@@ -5,6 +5,8 @@ import "fmt"
 func main() {
 	var accountBalance float64 = 1000
 
+	// Go just have one keyword to loop, that is "for" loop 
+	
 	for i := 0; i < 2; i++ {
 		fmt.Println("Welcome to GoBank!")
 		fmt.Println("What do you want to do?")
