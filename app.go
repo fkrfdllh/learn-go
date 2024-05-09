@@ -9,6 +9,9 @@ func main() {
 	
 	fmt.Println("Welcome to GoBank!")
 	
+	// We can use like "while", for with condition using
+	// for someCondition { // TODO }
+	
 	for {
 		fmt.Println("What do you want to do?")
 		fmt.Println("1. Check balance")
