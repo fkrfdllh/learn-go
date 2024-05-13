@@ -5,6 +5,11 @@ import (
 	"os"
 )
 
+func readBalance() {
+	data, _ := os.ReadFile("balance.txt")
+	return data
+}
+
 func writeToFile(balance float64) {
 	latestBalance := fmt.Sprint(balance)
 	os.WriteFile("balance.txt", []byte(latestBalance), 0644)
