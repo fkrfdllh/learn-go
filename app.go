@@ -3,20 +3,26 @@ package main
 import (
 	"fmt"
 	"os"
+	"strconv"
 )
 
-func readBalance() {
-	data, _ := os.ReadFile("balance.txt")
-	return data
+const balanceFilePath = "balance.txt"
+
+func readBalance() (balance float64) {
+	data, _ := os.ReadFile(balanceFilePath)
+	balanceStr := string(data)
+	balance, _ = strconv.ParseFloat(balanceStr, 64)
+
+	return
 }
 
 func writeToFile(balance float64) {
 	latestBalance := fmt.Sprint(balance)
-	os.WriteFile("balance.txt", []byte(latestBalance), 0644)
+	os.WriteFile(balanceFilePath, []byte(latestBalance), 0644)
 }
 
 func main() {
-	var accountBalance float64 = 1000
+	var accountBalance float64 = readBalance()
 
 	// Go just have one keyword to loop, that is "for" loop 
 	
