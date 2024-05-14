@@ -46,6 +46,8 @@ func main() {
 			fmt.Println("--------------------")
 			fmt.Printf("Error: %v\n", err)
 			fmt.Println("--------------------")
+
+			panic("Can't continue, sorry")
 		}
 		
 		fmt.Println("What do you want to do?")
