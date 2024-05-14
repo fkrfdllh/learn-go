@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"strconv"
@@ -8,12 +9,21 @@ import (
 
 const balanceFilePath = "balance.txt"
 
-func readBalance() (balance float64) {
-	data, _ := os.ReadFile(balanceFilePath)
-	balanceStr := string(data)
-	balance, _ = strconv.ParseFloat(balanceStr, 64)
+func readBalance() (float64, error) {
+	data, err := os.ReadFile(balanceFilePath)
 
-	return
+	if err != nil {
+		return 0, errors.New("failed to retrieve balance")
+	}
+	
+	balanceStr := string(data)
+	balance, err := strconv.ParseFloat(balanceStr, 64)
+
+	if err != nil {
+		return 0, errors.New("failed to parse balance")
+	}
+
+	return balance, nil
 }
 
 func writeToFile(balance float64) {
@@ -22,8 +32,6 @@ func writeToFile(balance float64) {
 }
 
 func main() {
-	var accountBalance float64 = readBalance()
-
 	// Go just have one keyword to loop, that is "for" loop 
 	
 	fmt.Println("Welcome to GoBank!")
@@ -32,6 +40,14 @@ func main() {
 	// for someCondition { // TODO }
 	
 	for {
+		accountBalance, err := readBalance()
+
+		if err != nil {
+			fmt.Println("--------------------")
+			fmt.Printf("Error: %v\n", err)
+			fmt.Println("--------------------")
+		}
+		
 		fmt.Println("What do you want to do?")
 		fmt.Println("1. Check balance")
 		fmt.Println("2. Deposit money")
