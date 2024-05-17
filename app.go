@@ -1,7 +1,13 @@
 package main
 
+// To import another package(s) is
+// Use the name of the module (see go.mod) then the name of package
+// In this project, I use "learn-go/utils"
+
 import (
 	"fmt"
+
+	"learn-go/utils"
 )
 
 const balanceFilePath = "balance.txt"
@@ -15,7 +21,7 @@ func main() {
 	// for someCondition { // TODO }
 	
 	for {
-		accountBalance, err := readFloatValueFromFile(balanceFilePath)
+		accountBalance, err := utils.ReadFloatValueFromFile(balanceFilePath)
 
 		if err != nil {
 			fmt.Println("--------------------")
@@ -48,7 +54,7 @@ func main() {
 				accountBalance += depositAmount
 		
 				fmt.Printf("Your updated account balance is $%.2f\n", accountBalance)
-				writeFloatToFile(balanceFilePath, accountBalance)
+				utils.WriteFloatToFile(balanceFilePath, accountBalance)
 			case 3:
 				var withdrawAmount float64
 	
@@ -68,7 +74,7 @@ func main() {
 				accountBalance -= withdrawAmount
 		
 				fmt.Printf("Your updated account balance is $%.2f\n", accountBalance)
-				writeFloatToFile(balanceFilePath, accountBalance)
+				utils.WriteFloatToFile(balanceFilePath, accountBalance)
 			default:
 				fmt.Println("Goodbye!")
 				fmt.Println("Thank you for choosing our bank")
