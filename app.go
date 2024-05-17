@@ -8,6 +8,8 @@ import (
 	"fmt"
 
 	"learn-go/utils"
+
+	"github.com/Pallinder/go-randomdata"
 )
 
 const balanceFilePath = "balance.txt"
@@ -16,6 +18,7 @@ func main() {
 	// Go just have one keyword to loop, that is "for" loop 
 	
 	fmt.Println("Welcome to GoBank!")
+	fmt.Println("Reach us 24/7 on", randomdata.PhoneNumber())
 	
 	// We can use like "while", for with condition using
 	// for someCondition { // TODO }
