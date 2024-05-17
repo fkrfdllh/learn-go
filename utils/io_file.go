@@ -7,7 +7,11 @@ import (
 	"strconv"
 )
 
-func readFloatValueFromFile(filename string) (float64, error) {
+// To use these functions outside of this package
+// The first character of function's name must be uppercase
+// It means the function is exported (public function)
+
+func ReadFloatValueFromFile(filename string) (float64, error) {
 	data, err := os.ReadFile(filename)
 
 	if err != nil {
@@ -24,7 +28,7 @@ func readFloatValueFromFile(filename string) (float64, error) {
 	return value, nil
 }
 
-func writeFloatToFile(filename string, balance float64) {
+func WriteFloatToFile(filename string, balance float64) {
 	valueText := fmt.Sprint(balance)
 	os.WriteFile(filename, []byte(valueText), 0644)
 }
