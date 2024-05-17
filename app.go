@@ -32,21 +32,21 @@ func userPrompt() (float64, float64, float64, error) {
 	fmt.Print("Revenue: ")
 	fmt.Scanln(&revenue)
 
-	if revenue < 1 {
+	if revenue <= 0 {
 		return 0, 0, 0, errors.New("revenue value cannot be null")
 	}
 
 	fmt.Print("Expenses: ")
 	fmt.Scanln(&expenses)
 
-	if expenses < 1 {
+	if expenses <= 0 {
 		return 0, 0, 0, errors.New("expenses value cannot be null")
 	}
 
 	fmt.Print("Tax Rate: ")
 	fmt.Scanln(&taxRate)
 
-	if taxRate < 1 {
+	if taxRate <= 0 {
 		return 0, 0, 0, errors.New("tax rate value cannot be null")
 	}
 
