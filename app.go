@@ -2,8 +2,17 @@ package main
 
 import "fmt"
 
+// -- How to define pointer --
+// var variable *int
+// or
+// varPointer := &variable
+
 func main() {
 	age := 24
+
+	var agePointer *int
+
+	agePointer = &age
 
 	fmt.Println("Age:", age)
 
