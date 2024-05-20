@@ -13,9 +13,7 @@ import "fmt"
 func main() {
 	age := 24
 
-	var agePointer *int
-
-	agePointer = &age
+	var agePointer *int = &age
 
 	// fmt.Println("Age:", age)
 
@@ -25,10 +23,10 @@ func main() {
 	// this line is show the value of pointer's pointing
 	fmt.Println("Age:", *agePointer)
 
-	adultYears := getAdultYears(age)
+	adultYears := getAdultYears(agePointer)
 	fmt.Println(adultYears)
 }
 
-func getAdultYears(age int) int {
-	return age - 18
+func getAdultYears(age *int) int {
+	return *age - 18
 }
