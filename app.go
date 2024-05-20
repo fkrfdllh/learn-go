@@ -14,7 +14,13 @@ func main() {
 
 	agePointer = &age
 
-	fmt.Println("Age:", age)
+	// fmt.Println("Age:", age)
+
+	// this line is show where pointer pointing the value memory address
+	// fmt.Println("Age:", agePointer)
+
+	// this line is show the value of pointer's pointing
+	fmt.Println("Age:", *agePointer)
 
 	adultYears := getAdultYears(age)
 	fmt.Println(adultYears)
