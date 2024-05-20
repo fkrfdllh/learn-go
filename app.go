@@ -7,6 +7,9 @@ import "fmt"
 // or
 // varPointer := &variable
 
+// If pointer pointing null value
+// Then it is "nil"
+
 func main() {
 	age := 24
 
