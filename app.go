@@ -27,7 +27,7 @@ func main() {
 		createdAt: time.Now(),
 	}
 
-	outputUserData(appUser)
+	outputUserData(&appUser)
 }
 
 func getUserData(promptText string) string {
@@ -39,6 +39,10 @@ func getUserData(promptText string) string {
 	return value
 }
 
-func outputUserData(user user) {
+func outputUserData(user *user) {
+	// // Proper way
+	// fmt.Println((*user).firstName, (*user).lastName, (*user).birthDate)
+	
+	// Shorter way
 	fmt.Println(user.firstName, user.lastName, user.birthDate)
 }
