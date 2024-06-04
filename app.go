@@ -19,7 +19,15 @@ func main() {
 
 	// TODO
 
-	fmt.Println(firstName, lastName, birthDate)
+	// Struct Literal notation
+	var appUser user = user{
+		firstName: firstName,
+		lastName: lastName,
+		birthDate: birthDate,
+		createdAt: time.Now(),
+	}
+
+	outputUserData(firstName, lastName, birthDate)
 }
 
 func getUserData(promptText string) string {
@@ -29,4 +37,8 @@ func getUserData(promptText string) string {
 	fmt.Scanln(&value)
 	
 	return value
+}
+
+func outputUserData(firstName, lastName, birthDate string) {
+	fmt.Println(firstName, lastName, birthDate)
 }
