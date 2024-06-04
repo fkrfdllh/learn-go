@@ -27,7 +27,7 @@ func main() {
 		createdAt: time.Now(),
 	}
 
-	outputUserData(firstName, lastName, birthDate)
+	outputUserData(appUser)
 }
 
 func getUserData(promptText string) string {
@@ -39,6 +39,6 @@ func getUserData(promptText string) string {
 	return value
 }
 
-func outputUserData(firstName, lastName, birthDate string) {
-	fmt.Println(firstName, lastName, birthDate)
+func outputUserData(user user) {
+	fmt.Println(user.firstName, user.lastName, user.birthDate)
 }
