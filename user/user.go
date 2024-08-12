@@ -21,6 +21,12 @@ type User struct {
 	createdAt time.Time
 }
 
+type Admin struct {
+	email string
+	password string
+	User User
+}
+
 // Since Go isn't OOP programming language
 // While creating constructor, it's follows the pattern 
 // func new<structName>
@@ -36,6 +42,18 @@ func NewUser(firstName, lastName, birthDate string) (*User, error) {
 		birthDate: birthDate,
 		createdAt: time.Now(),
 	}, nil
+}
+
+func NewAdmin(email, password string) (*Admin) {
+	return &Admin{
+		email: email,
+		password: password,
+		User: User{
+			firstName: "Admin",
+			lastName: "Admin",
+			birthDate: "---",
+		},
+	}
 }
 
 func (user *User) OutputUserData() {
