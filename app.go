@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"time"
 )
@@ -16,13 +17,17 @@ type user struct {
 // While creating constructor, it's follows the pattern 
 // func new<structName>
 // and then returns pointer
-func newUser(firstName, lastName, birthDate string) *user {
+func newUser(firstName, lastName, birthDate string) (*user, error) {
+	if firstName == "" || lastName == "" || birthDate == "" {
+		return nil, errors.New("first name, last name, or birth date can not be null")
+	}
+	
 	return &user{
 		firstName: firstName,
 		lastName: lastName,
 		birthDate: birthDate,
 		createdAt: time.Now(),
-	}
+	}, nil
 }
 
 func (user *user) outputUserData() {
@@ -47,7 +52,12 @@ func main() {
 	// 	createdAt: time.Now(),
 	// }
 
-	appUser := newUser(firstName, lastName, birthDate)
+	appUser, err := newUser(firstName, lastName, birthDate)
+
+	if err != nil {
+		fmt.Println(err)
+		return 
+	}
 
 	// outputUserData(&appUser)
 	appUser.outputUserData()
